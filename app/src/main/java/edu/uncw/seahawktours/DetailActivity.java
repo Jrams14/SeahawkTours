@@ -19,12 +19,18 @@ public class DetailActivity extends Activity {
         TextView caption = (TextView) findViewById(R.id.caption);
         TextView paragraph = (TextView) findViewById(R.id.paragraph);
         buildTextView.setText(building);
-        if (building.equals("CIS building")){
+        if (building.equals("CIS Building")){
             paragraph.setText(R.string.cisText);
+            caption.setText(R.string.cisCap);
+            image.setImageResource(R.drawable.cis);
         } else if(building.equals("Student Recreation Center")){
             paragraph.setText(R.string.studentRecText);
+            caption.setText(R.string.studentRecCap);
+            image.setImageResource(R.drawable.src);
         } else if(building.equals("Randall Library")) {
             paragraph.setText(R.string.randallText);
+            caption.setText(R.string.randallCap);
+            image.setImageResource(R.drawable.randall);
         }
     }
 }
