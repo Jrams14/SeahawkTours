@@ -19,8 +19,12 @@ public class DetailActivity extends Activity {
         TextView caption = (TextView) findViewById(R.id.caption);
         TextView paragraph = (TextView) findViewById(R.id.paragraph);
         buildTextView.setText(building);
-        if (building == "Student Recreation Center"){
+        if (building.equals("CIS building")){
             paragraph.setText(R.string.cisText);
+        } else if(building.equals("Student Recreation Center")){
+            paragraph.setText(R.string.studentRecText);
+        } else if(building.equals("Randall Library")) {
+            paragraph.setText(R.string.randallText);
         }
     }
 }
