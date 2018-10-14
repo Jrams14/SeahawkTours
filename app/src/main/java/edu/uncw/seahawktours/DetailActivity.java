@@ -12,13 +12,15 @@ public class DetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
         Intent intent = getIntent();
-        String building = intent.getStringExtra("buildingName");
+        String building = intent.getStringExtra("BUILDING_NAME");
         TextView buildTextView = (TextView) findViewById(R.id.buildTextView);
         ImageView image = (ImageView) findViewById(R.id.imageView);
         TextView caption = (TextView) findViewById(R.id.caption);
         TextView paragraph = (TextView) findViewById(R.id.paragraph);
         buildTextView.setText(building);
+
         if (building.equals("CIS Building")){
             paragraph.setText(R.string.cisText);
             caption.setText(R.string.cisCap);

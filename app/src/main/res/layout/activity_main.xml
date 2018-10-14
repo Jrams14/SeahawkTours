@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:textSize="45dp"
+        android:textSize="45sp"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
          />
@@ -43,6 +43,6 @@
         android:layout_gravity="center"
         android:background="@drawable/rounded_button"
         android:text="Search"
-        android:onClick="searchBuilding"/>
+        android:onClick="SearchBuilding"/>
 
 </LinearLayout>

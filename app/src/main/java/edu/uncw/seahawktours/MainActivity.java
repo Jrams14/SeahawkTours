@@ -14,11 +14,11 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    public void searchBuilding(View view) {
+    public void SearchBuilding(View view) {
         Spinner buildingSpinner = (Spinner) findViewById(R.id.buildings);
         String selBuild = String.valueOf(buildingSpinner.getSelectedItem());
         Intent intent = new Intent(this,DetailActivity.class);
-        intent.putExtra("buildingName",selBuild);
+        intent.putExtra("BUILDING_NAME",selBuild);
         startActivity(intent);
     }
 }
