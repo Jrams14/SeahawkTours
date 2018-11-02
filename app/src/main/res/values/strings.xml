@@ -5,15 +5,21 @@
         <item>CIS Building</item>
         <item>Randall Library</item>
     </string-array>
-    <string name="studentRecCap">Picture of the Student Recreation Center</string>
-    <string name="cisCap">Picture of the CIS Building</string>
-    <string name="randallCap">Picture of Randall Library</string>
-    <string name="studentRecText">The mission of the Department of Campus Recreation is to provide quality recreational experiences and facilities thus enhancing the overall educational experience of the campus community.
+
+    <string name = "student_rec_name">Student Recreation Center</string>
+    <string name="student_rec_description">The mission of the Department of Campus Recreation is to provide quality recreational experiences and facilities thus enhancing the overall educational experience of the campus community.
         This goal is accomplished by offering a wide variety of recreational activities, conducting educational workshops and providing professional training. The Department of Campus Recreation, Division of Student Affairs, provides a multi-faceted program that includes: Group Fitness/Fitness Programs, Intramural Sports, Aquatics, Adventure Recreation Programs, and Sport Clubs. Campus Recreation at UNCW takes a "something for everyone" approach to programming.
         The University of North Carolina at Wilmington is an Institutional Member of NIRSA. NIRSA is the leading resource for professional and student development, education, and research in collegiate recreational sports. Campus Recreation staff members have a rich tradition of participation within NIRSA.</string>
-    <string name="randallText">Funding to construct a library at the new campus location began in 1965 by the Friends of Wilmington College. The first on-site library was housed in Alderman Hall administration building following the move from Isaac Bear Building. In 1968, the original front of Randall Library faced College Road but since its 1980s expansion the entrance now faces Chancellors Walk. This facility contains UNCW Archives, Special Collections (Helen Hagan Room), the Gene Huguelet Conference Room, and the Honors Program offices, along with various faculty offices.</string>
-    <string name="cisText">The Computer Information Systems (CIS) building was constructed to house the Information Systems and Operations Management Department from the Cameron School of Business and the Department of Computer Science from the College of Arts and Sciences. The CIS Building, a new 51,731 square-foot state-of-the-art facility on the UNCW campus, opened January 10, 2007 for the new school semester. Work on the facility began on July 29, 2004 with the groundbreaking, and competed in December of 2006. The building cost approximately $12.8 million and was funded by the North Carolina State Bond campaign of 2000.
+    <string name="student_rec_caption">Picture of the Student Recreation Center</string>
+
+    <string name = 'cis_name'>CIS Building</string>
+    <string name="cis_description">The Computer Information Systems (CIS) building was constructed to house the Information Systems and Operations Management Department from the Cameron School of Business and the Department of Computer Science from the College of Arts and Sciences. The CIS Building, a new 51,731 square-foot state-of-the-art facility on the UNCW campus, opened January 10, 2007 for the new school semester. Work on the facility began on July 29, 2004 with the groundbreaking, and competed in December of 2006. The building cost approximately $12.8 million and was funded by the North Carolina State Bond campaign of 2000.Housed within the new building is the Financial Markets Room and, thanks to a donation from Edward Jones and over 50 if its financial advisers, the Edward Jones Financial Lab. Both rooms contain a stock board and ticker, however the Edward Jones Financial Lab also includes the Bloomberg Trading Terminal. With this terminal, students and faculty have the ability to trade stocks directly with the New York Stock Exchange, NASDAQ and more.</string>
+    <string name="cis_caption">Picture of the CIS Building</string>
+
+    <string name = "randall_name">Randall Library</string>
+    <string name="randall_caption">Picture of Randall Library</string>
+    <string name="randall_description">Funding to construct a library at the new campus location began in 1965 by the Friends of Wilmington College. The first on-site library was housed in Alderman Hall administration building following the move from Isaac Bear Building. In 1968, the original front of Randall Library faced College Road but since its 1980s expansion the entrance now faces Chancellors Walk. This facility contains UNCW Archives, Special Collections (Helen Hagan Room), the Gene Huguelet Conference Room, and the Honors Program offices, along with various faculty offices.</string>
 
 
-Housed within the new building is the Financial Markets Room and, thanks to a donation from Edward Jones and over 50 if its financial advisers, the Edward Jones Financial Lab. Both rooms contain a stock board and ticker, however the Edward Jones Financial Lab also includes the Bloomberg Trading Terminal. With this terminal, students and faculty have the ability to trade stocks directly with the New York Stock Exchange, NASDAQ and more.</string>
+
 </resources>

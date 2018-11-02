@@ -8,31 +8,35 @@ import android.widget.TextView;
 
 public class DetailActivity extends Activity {
 
+    Building[] buildings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        Building build = new Building();
+        buildings = build.createBuildings(this);
+
+
         Intent intent = getIntent();
         String building = intent.getStringExtra("BUILDING_NAME");
-        TextView buildTextView = (TextView) findViewById(R.id.buildTextView);
+        TextView buildName= (TextView) findViewById(R.id.building_name);
         ImageView image = (ImageView) findViewById(R.id.imageView);
         TextView caption = (TextView) findViewById(R.id.caption);
-        TextView paragraph = (TextView) findViewById(R.id.paragraph);
-        buildTextView.setText(building);
+        TextView description = (TextView) findViewById(R.id.paragraph);
 
-        if (building.equals("CIS Building")){
-            paragraph.setText(R.string.cisText);
-            caption.setText(R.string.cisCap);
-            image.setImageResource(R.drawable.cis);
-        } else if(building.equals("Student Recreation Center")){
-            paragraph.setText(R.string.studentRecText);
-            caption.setText(R.string.studentRecCap);
-            image.setImageResource(R.drawable.src);
-        } else if(building.equals("Randall Library")) {
-            paragraph.setText(R.string.randallText);
-            caption.setText(R.string.randallCap);
-            image.setImageResource(R.drawable.randall);
+        for (Building b: buildings) {
+            if (b.getName().equalsIgnoreCase(building)) {
+                buildName.setText(b.getName());
+                description.setText(b.getDescription());
+                caption.setText(b.getCaption());
+                image.setImageDrawable(b.getImage());
+            }
         }
+
+
+
+
     }
 }
