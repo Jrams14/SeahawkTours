@@ -20,14 +20,15 @@ public class DetailActivity extends Activity {
 
 
         Intent intent = getIntent();
-        String building = intent.getStringExtra("BUILDING_NAME");
+        int buildingPosition = intent.getIntExtra("BUILDING_POS",-1);
+        System.out.println(buildingPosition);
         TextView buildName= (TextView) findViewById(R.id.building_name);
         ImageView image = (ImageView) findViewById(R.id.imageView);
         TextView caption = (TextView) findViewById(R.id.caption);
         TextView description = (TextView) findViewById(R.id.paragraph);
 
         for (Building b: buildings) {
-            if (b.getName().equalsIgnoreCase(building)) {
+            if (b.getPosition() == buildingPosition ){
                 buildName.setText(b.getName());
                 description.setText(b.getDescription());
                 caption.setText(b.getCaption());
