@@ -33,6 +33,9 @@ public class Building {
                 new Building(c.getString(R.string.student_rec_name),0,c.getString(R.string.student_rec_description),c.getString(R.string.student_rec_caption), ContextCompat.getDrawable(c,R.drawable.src),"https://library.uncw.edu/web/collections/archives/bnl/34.html"),
                 new Building(c.getString(R.string.cis_name),1,c.getString(R.string.cis_description),c.getString(R.string.cis_caption), ContextCompat.getDrawable(c,R.drawable.cis),"https://library.uncw.edu/web/collections/archives/bnl/cis.html"),
                 new Building(c.getString(R.string.randall_name),2,c.getString(R.string.randall_description),c.getString(R.string.randall_caption), ContextCompat.getDrawable(c,R.drawable.randall),"https://library.uncw.edu/web/collections/archives/bnl/3.html"),
+                new Building(c.getString(R.string.burney_name),3,c.getString(R.string.burney_description),c.getString(R.string.burney_caption), ContextCompat.getDrawable(c,R.drawable.burney),"https://library.uncw.edu/web/collections/archives/bnl/15.html"),
+                new Building(c.getString(R.string.brooks_name),4,c.getString(R.string.brooks_description),c.getString(R.string.brooks_caption), ContextCompat.getDrawable(c,R.drawable.brooks),"https://library.uncw.edu/web/collections/archives/bnl/bbs.html"),
+
         };
 
             buildingList = buildings;

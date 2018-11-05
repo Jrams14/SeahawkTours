@@ -4,22 +4,37 @@
         <item>Student Recreation Center</item>
         <item>CIS Building</item>
         <item>Randall Library</item>
+        <item>Burney Center</item>
+        <item>Brooks Field</item>
     </string-array>
 
-    <string name = "student_rec_name">Student Recreation Center</string>
+    <string name="student_rec_name">Student Recreation Center</string>
     <string name="student_rec_description">The mission of the Department of Campus Recreation is to provide quality recreational experiences and facilities thus enhancing the overall educational experience of the campus community.
         This goal is accomplished by offering a wide variety of recreational activities, conducting educational workshops and providing professional training. The Department of Campus Recreation, Division of Student Affairs, provides a multi-faceted program that includes: Group Fitness/Fitness Programs, Intramural Sports, Aquatics, Adventure Recreation Programs, and Sport Clubs. Campus Recreation at UNCW takes a "something for everyone" approach to programming.
         The University of North Carolina at Wilmington is an Institutional Member of NIRSA. NIRSA is the leading resource for professional and student development, education, and research in collegiate recreational sports. Campus Recreation staff members have a rich tradition of participation within NIRSA.</string>
     <string name="student_rec_caption">Picture of the Student Recreation Center</string>
 
-    <string name = 'cis_name'>CIS Building</string>
+    <string name='cis_name'>CIS Building</string>
     <string name="cis_description">The Computer Information Systems (CIS) building was constructed to house the Information Systems and Operations Management Department from the Cameron School of Business and the Department of Computer Science from the College of Arts and Sciences. The CIS Building, a new 51,731 square-foot state-of-the-art facility on the UNCW campus, opened January 10, 2007 for the new school semester. Work on the facility began on July 29, 2004 with the groundbreaking, and competed in December of 2006. The building cost approximately $12.8 million and was funded by the North Carolina State Bond campaign of 2000.Housed within the new building is the Financial Markets Room and, thanks to a donation from Edward Jones and over 50 if its financial advisers, the Edward Jones Financial Lab. Both rooms contain a stock board and ticker, however the Edward Jones Financial Lab also includes the Bloomberg Trading Terminal. With this terminal, students and faculty have the ability to trade stocks directly with the New York Stock Exchange, NASDAQ and more.</string>
     <string name="cis_caption">Picture of the CIS Building</string>
 
-    <string name = "randall_name">Randall Library</string>
+    <string name="randall_name">Randall Library</string>
     <string name="randall_caption">Picture of Randall Library</string>
     <string name="randall_description">Funding to construct a library at the new campus location began in 1965 by the Friends of Wilmington College. The first on-site library was housed in Alderman Hall administration building following the move from Isaac Bear Building. In 1968, the original front of Randall Library faced College Road but since its 1980s expansion the entrance now faces Chancellors Walk. This facility contains UNCW Archives, Special Collections (Helen Hagan Room), the Gene Huguelet Conference Room, and the Honors Program offices, along with various faculty offices.</string>
 
+    <string name="burney_name">Burney Center</string>
+    <string name="burney_description">Occupied in 1985, the Burney Student Support Center contained the University Bookstore, the Parking/Student ID Office and the Department of Communication Studies, which moved to Leutze Hall in 2003. The dedication ceremony for the center was held November 1989. In 2006, the bookstore moved to the new Fisher Student Center. Renovations of the Burney Student Support Center began in 2006, and the building was reopened in March 2008 as mainly a meetings and events facility. The name was shortened to the \"Burney Center".The renovated Burney Center includes a 9,300 square foot ballroom, which seats nearly 600 guests banquet style and close to 1,000 guests auditorium style.The Burney Center also features a colonnade connecting the Burney Center with the new Fisher Student Center. A part of the original construction plans, the colonnade project was cut due to a lack of funds. The Parent's Council then decided to raise money for the colonnade to be built and approximately $190,000 was raised to go towards its construction. It was unveiled on April 5, 2008.</string>
+    <string name="burney_caption">Picture of Burney Center</string>
 
+    <string name="brooks_name">Brooks Field Baseball Stadium</string>
+    <string name="brooks_description">Brooks Field has under gone several transformations over the years as UNC Wilmington has grown. The stadium facility now includes a press box, which was placed on site in 1982 and lights for day and night use were added in 1987. Brooks Field was officially dedicated in February 1988. In 1989, a plaque was added at the entrance to Brooks Field to express gratitude to Raiford G. Trask, a Wilmington businessman who supported Seahawk sports.</string>
+    <string name="brooks_caption">Picture of Brooks Field</string>
+
+    <string name="about">Created by Jordan Ramsey. UNCW building information and images courtesy of the UNCW</string>
+    <string name="about_activity">About</string>
+
+    <string name="url_1">For me information, please visit, </string>
+
+    <string name="about_link"><a href="https://library.uncw.edu/archives_special/archives">University Archives</a></string>
 
 </resources>
