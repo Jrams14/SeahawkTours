@@ -33,8 +33,11 @@
     <string name="about">Created by Jordan Ramsey. UNCW building information and images courtesy of the UNCW</string>
     <string name="about_activity">About</string>
 
-    <string name="url_1">For me information, please visit, </string>
+    <string name="url_1">For more information, please visit </string>
 
     <string name="about_link"><a href="https://library.uncw.edu/archives_special/archives">University Archives</a></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -30,26 +30,13 @@ public class DetailActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
 
-
         Intent intent = getIntent();
         int buildingPosition = intent.getIntExtra("BUILDING_POS",-1);
-        System.out.println(buildingPosition);
-        TextView buildName= (TextView) findViewById(R.id.building_name);
-        ImageView image = (ImageView) findViewById(R.id.imageView);
-        TextView caption = (TextView) findViewById(R.id.caption);
-        TextView description = (TextView) findViewById(R.id.paragraph);
-        TextView url = (TextView) findViewById(R.id.url_2);
 
-        for (Building b: buildings) {
-            if (b.getPosition() == buildingPosition ){
-                buildName.setText(b.getName());
-                description.setText(b.getDescription());
-                caption.setText(b.getCaption());
-                image.setImageDrawable(b.getImage());
-                url.setText(b.getUrl());
+        BuildingDetailFragment frag = (BuildingDetailFragment) getSupportFragmentManager().findFragmentById(R.id.detail_fragment);
+        frag.setPosition(buildingPosition);
 
-            }
-        }
+
 
     }
 
@@ -71,6 +58,5 @@ public class DetailActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 }
