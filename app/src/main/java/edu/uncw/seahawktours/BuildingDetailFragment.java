@@ -20,6 +20,13 @@ public class BuildingDetailFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(savedInstanceState !=null) {
+            position = savedInstanceState.getInt("buildingPosition");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,6 +58,11 @@ public class BuildingDetailFragment extends Fragment {
                 }
             }
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt("buildingPosition",this.position);
     }
 
     public void setPosition(int pos) {

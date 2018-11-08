@@ -3,6 +3,7 @@ package edu.uncw.seahawktours;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,9 +52,21 @@ public class MainActivity extends AppCompatActivity implements BuildingListSpinn
     public void itemClicked(int position) {
         this.position = position;
         if (++ counter > 1) {
-            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-            intent.putExtra("BUILDING_POS", position);
-            startActivity(intent);
+            View fragmentContainer = findViewById(R.id.fragment_container);
+            if(fragmentContainer != null) {
+                BuildingDetailFragment details = new BuildingDetailFragment();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                details.setPosition(position);
+                ft.replace(R.id.fragment_container,details);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.addToBackStack(null);
+                ft.commit();
+            }else {
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra("BUILDING_POS", position);
+                startActivity(intent);
+            }
+
         }
     }
 
