@@ -49,6 +49,7 @@ public class BuildingListFragment extends Fragment {
 
 
                 View fragmentContainer = getActivity().findViewById(R.id.fragment_container);
+                System.out.println(fragmentContainer);
                 if(fragmentContainer != null) {
                     BuildingDetailFragment details = new BuildingDetailFragment();
                     FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
