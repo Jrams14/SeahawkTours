@@ -14,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 
-public class MainActivity extends AppCompatActivity implements BuildingListSpinnerFragment.Listener {
+public class MainActivity extends AppCompatActivity   {
 
     Building building = new Building();
     int counter = 0;
@@ -48,28 +48,6 @@ public class MainActivity extends AppCompatActivity implements BuildingListSpinn
                 return super.onOptionsItemSelected(item);
        }
     }
-
-    public void itemClicked(int position) {
-        this.position = position;
-        if (++ counter > 1) {
-            View fragmentContainer = findViewById(R.id.fragment_container);
-            if(fragmentContainer != null) {
-                BuildingDetailFragment details = new BuildingDetailFragment();
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                details.setPosition(position);
-                ft.replace(R.id.fragment_container,details);
-                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                ft.addToBackStack(null);
-                ft.commit();
-            }else {
-                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                intent.putExtra("BUILDING_POS", position);
-                startActivity(intent);
-            }
-
-        }
-    }
-
 
 
 }

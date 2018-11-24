@@ -5,6 +5,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +14,11 @@ class CaptionedImageAdapter extends RecyclerView.Adapter<CaptionedImageAdapter.V
 
     private String[] captions;
     private Drawable [] imageIds;
+    private Listener listener;
+
+    interface Listener {
+        void onClick(int position);
+    }
 
     public CaptionedImageAdapter(String[] captions, Drawable[] imageIds) {
         this.captions = captions;
@@ -22,6 +28,10 @@ class CaptionedImageAdapter extends RecyclerView.Adapter<CaptionedImageAdapter.V
     @Override
     public int getItemCount() {
         return captions.length;
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -40,7 +50,7 @@ class CaptionedImageAdapter extends RecyclerView.Adapter<CaptionedImageAdapter.V
         return new ViewHolder(cv);
     }
 
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
         CardView cardView = holder.cardView;
         ImageView imageView = (ImageView) cardView.findViewById(R.id.info_image);
@@ -49,6 +59,16 @@ class CaptionedImageAdapter extends RecyclerView.Adapter<CaptionedImageAdapter.V
         imageView.setContentDescription(captions[position]);
         TextView textView = (TextView) cardView.findViewById(R.id.info_text);
         textView.setText(captions[position]);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onClick(position);
+                }
+            }
+            });
     }
+
+
 
 }
