@@ -20,6 +20,11 @@ public class BuildingListFragment extends Fragment {
 
     Building building = new Building();
     Building[] buildings;
+    private Listener listener;
+
+    interface Listener {
+        void onClick(int position);
+    }
 
     public BuildingListFragment() {
         // Required empty public constructor
@@ -47,26 +52,7 @@ public class BuildingListFragment extends Fragment {
         adapter.setListener(new CaptionedImageAdapter.Listener() {
             @Override
             public void onClick(int position) {
-
-
-                View fragmentContainer = getActivity().findViewById(R.id.fragment_container);
-                System.out.println(fragmentContainer);
-                if(fragmentContainer != null) {
-                    BuildingDetailFragment details = new BuildingDetailFragment();
-                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                    details.setPosition(position);
-                    ft.replace(R.id.fragment_container, details);
-                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                    ft.addToBackStack(null);
-                    ft.commit();
-
-
-                }else{
-                    Intent intent = new Intent(getActivity(), DetailActivity.class);
-                    intent.putExtra("BUILDING_POS",position);
-                    getActivity().startActivity(intent);
-                }
-
+                listener.onClick(position);
                 }
         });
         recycler.setAdapter(adapter);
@@ -79,7 +65,9 @@ public class BuildingListFragment extends Fragment {
 
     @Override
     public void onAttach(Context context) {
+        this.listener= (Listener)context;
         super.onAttach(context);
+
    }
 
 }
