@@ -9,12 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
+import io.objectbox.Box;
+
 
 public class BuildingDetailFragment extends Fragment {
 
-    Building building = new Building();
-    Building[] buildings;
     int position;
+    private List<Building> buildingList;
+    private Box<Building> buildingBox;
 
     public BuildingDetailFragment() {
         // Required empty public constructor
@@ -37,9 +41,10 @@ public class BuildingDetailFragment extends Fragment {
 
     @Override
     public void onStart() {
-        buildings = building.createBuildings(getActivity());
-        super.onStart();
 
+        super.onStart();
+        buildingBox = ((App) getActivity().getApplication()).getBoxStore().boxFor(Building.class);
+        buildingList = buildingBox.getAll();
         View view = getView();
         if (view != null) {
             TextView buildName= (TextView) view.findViewById(R.id.building_name);
@@ -48,15 +53,14 @@ public class BuildingDetailFragment extends Fragment {
             TextView description = (TextView) view.findViewById(R.id.paragraph);
             TextView url = (TextView) view.findViewById(R.id.url_2);
 
-            for (Building b: buildings) {
-                if (b.getPosition() == this.position ){
-                    buildName.setText(b.getName());
-                    description.setText(b.getDescription());
-                    caption.setText(b.getCaption());
-                    image.setImageDrawable(b.getImage());
-                    url.setText(b.getUrl());
-                }
-            }
+            buildName.setText(buildingList.get(position).getName());
+            description.setText(buildingList.get(position).getDescription());
+            caption.setText(buildingList.get(position).getCaption());
+            int buildingImage = getContext().getResources().getIdentifier(buildingList.get(position).getImage(),"drawable",getContext().getPackageName());
+            image.setImageResource(buildingImage);
+            url.setText(buildingList.get(position).getUrl());
+
+
         }
     }
 
@@ -67,5 +71,9 @@ public class BuildingDetailFragment extends Fragment {
 
     public void setPosition(int pos) {
         this.position = pos;
+    }
+
+    public void setBuildingList(List<Building> buildings){
+        this.buildingList = buildings;
     }
 }

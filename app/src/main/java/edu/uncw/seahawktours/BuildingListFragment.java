@@ -14,16 +14,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.content.Context;
+import android.view.accessibility.CaptioningManager;
+
+import java.util.List;
+
+import io.objectbox.Box;
 
 
-public class BuildingListFragment extends Fragment {
+public class BuildingListFragment extends Fragment implements CaptionedImageAdapter.Listener{
 
-    Building building = new Building();
-    Building[] buildings;
+    Box<Building> buildingBox;
+    List<Building> buildingList;
+
     private Listener listener;
 
     interface Listener {
-        void onClick(int position);
+        void onClick(int position,List<Building> buildingList);
     }
 
     public BuildingListFragment() {
@@ -35,26 +41,13 @@ public class BuildingListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        buildingBox = ((App) getActivity().getApplication()).getBoxStore().boxFor(Building.class);
+        buildingList = buildingBox.getAll();
         RecyclerView recycler = (RecyclerView) inflater.inflate(R.layout.fragment_building_list, container, false);
-        buildings = building.createBuildings(getActivity());
 
-        String[] buildingNames = new String[buildings.length];
-        for (int i = 0; i < buildingNames.length; i++) {
-            buildingNames[i] = buildings[i].getName();
-        }
+        CaptionedImageAdapter adapter = new CaptionedImageAdapter(buildingList,getContext());
+        adapter.setListener(this);
 
-        Drawable[] drawables = new Drawable[buildings.length];
-        for (int i = 0; i < drawables.length; i++) {
-            drawables[i] = buildings[i].getImage();
-        }
-
-        CaptionedImageAdapter adapter = new CaptionedImageAdapter(buildingNames, drawables);
-        adapter.setListener(new CaptionedImageAdapter.Listener() {
-            @Override
-            public void onClick(int position) {
-                listener.onClick(position);
-                }
-        });
         recycler.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -65,9 +58,13 @@ public class BuildingListFragment extends Fragment {
 
     @Override
     public void onAttach(Context context) {
-        this.listener= (Listener)context;
+        this.listener = (Listener)context;
         super.onAttach(context);
 
    }
+    @Override
+    public void onClick(int position) {
+        listener.onClick(position,buildingList);
+    }
 
 }

@@ -1,5 +1,6 @@
 package edu.uncw.seahawktours;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -10,24 +11,26 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 class CaptionedImageAdapter extends RecyclerView.Adapter<CaptionedImageAdapter.ViewHolder> {
 
-    private String[] captions;
-    private Drawable [] imageIds;
     private Listener listener;
+    private List<Building> buildingList;
+    private Context context;
 
     interface Listener {
         void onClick(int position);
     }
 
-    public CaptionedImageAdapter(String[] captions, Drawable[] imageIds) {
-        this.captions = captions;
-        this.imageIds = imageIds;
+    public CaptionedImageAdapter(List<Building> buildings,Context context) {
+        this.buildingList = buildings;
+        this.context = context;
     }
 
     @Override
     public int getItemCount() {
-        return captions.length;
+        return buildingList.size();
     }
 
     public void setListener(Listener listener) {
@@ -54,11 +57,11 @@ class CaptionedImageAdapter extends RecyclerView.Adapter<CaptionedImageAdapter.V
 
         CardView cardView = holder.cardView;
         ImageView imageView = (ImageView) cardView.findViewById(R.id.info_image);
-        Drawable drawable = imageIds[position];
-        imageView.setImageDrawable(drawable);
-        imageView.setContentDescription(captions[position]);
+        int buildingImage = context.getResources().getIdentifier(buildingList.get(position).getImage(),"drawable",context.getPackageName());
+        imageView.setImageResource(buildingImage);
+        imageView.setContentDescription(buildingList.get(position).getCaption());
         TextView textView = (TextView) cardView.findViewById(R.id.info_text);
-        textView.setText(captions[position]);
+        textView.setText(buildingList.get(position).getCaption());
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

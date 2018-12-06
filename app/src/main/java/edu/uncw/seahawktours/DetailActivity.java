@@ -12,9 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v7.app.ActionBar;
 
+import java.util.List;
+
 public class DetailActivity extends AppCompatActivity {
 
-    Building[] buildings;
+    List<Building> buildingList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,6 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         Building build = new Building();
-        buildings = build.createBuildings(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,6 +35,7 @@ public class DetailActivity extends AppCompatActivity {
         int buildingPosition = intent.getIntExtra("BUILDING_POS",-1);
 
         BuildingDetailFragment frag = (BuildingDetailFragment) getSupportFragmentManager().findFragmentById(R.id.detail_fragment);
+        frag.setBuildingList(buildingList);
         frag.setPosition(buildingPosition);
 
 
@@ -58,5 +60,9 @@ public class DetailActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void setBuildingList(List<Building> buildings) {
+        buildingList = buildings;
     }
 }

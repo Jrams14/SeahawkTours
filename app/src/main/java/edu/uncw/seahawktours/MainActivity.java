@@ -13,11 +13,11 @@ import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity implements BuildingListFragment.Listener {
 
-    Building building = new Building();
-    int counter = 0;
     int position;
 
 
@@ -49,12 +49,12 @@ public class MainActivity extends AppCompatActivity implements BuildingListFragm
         }
     }
 
-    public void onClick(int position) {
+    public void onClick(int position, List<Building> buildings) {
         View fragmentContainer = findViewById(R.id.fragment_container);
-        System.out.println(fragmentContainer);
         if (fragmentContainer != null) {
             BuildingDetailFragment details = new BuildingDetailFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            details.setBuildingList(buildings);
             details.setPosition(position);
             ft.replace(R.id.fragment_container, details);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
