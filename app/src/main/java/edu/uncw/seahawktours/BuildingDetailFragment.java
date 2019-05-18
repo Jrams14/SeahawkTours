@@ -22,7 +22,6 @@ public class BuildingDetailFragment extends Fragment {
     private Box<Building> buildingBox;
 
     public BuildingDetailFragment() {
-        // Required empty public constructor
     }
 
     @Override

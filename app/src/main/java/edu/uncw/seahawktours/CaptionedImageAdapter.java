@@ -59,9 +59,9 @@ class CaptionedImageAdapter extends RecyclerView.Adapter<CaptionedImageAdapter.V
         ImageView imageView = (ImageView) cardView.findViewById(R.id.info_image);
         int buildingImage = context.getResources().getIdentifier(buildingList.get(position).getImage(),"drawable",context.getPackageName());
         imageView.setImageResource(buildingImage);
-        imageView.setContentDescription(buildingList.get(position).getCaption());
+        imageView.setContentDescription(buildingList.get(position).getName());
         TextView textView = (TextView) cardView.findViewById(R.id.info_text);
-        textView.setText(buildingList.get(position).getCaption());
+        textView.setText(buildingList.get(position).getName());
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

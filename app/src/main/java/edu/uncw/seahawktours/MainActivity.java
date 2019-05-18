@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,6 +29,7 @@ import java.util.List;
 
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
+import io.objectbox.android.AndroidObjectBrowser;
 
 
 public class MainActivity extends AppCompatActivity implements BuildingListFragment.Listener {
@@ -43,10 +45,9 @@ public class MainActivity extends AppCompatActivity implements BuildingListFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buildingBox = ((App)this.getApplication()).getBoxStore().boxFor(Building.class);
+        buildingBox = ((App) getApplication()).getBoxStore().boxFor(Building.class);
         buildingList = buildingBox.getAll();
-
-
+        System.out.println(buildingList.get(0).getBuildingLongitude());
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -73,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements BuildingListFragm
                         public void onSuccess(Location location) {
                             // Got last known location. In some rare situations this can be null.
                             if (location != null) {
-                                // Logic to handle location object
                                 double lat = location.getLatitude();
                                 double longitude = location.getLongitude();
                                 // Initialize as 0
@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements BuildingListFragm
 
                                 // Loop through buildings looking for closest building.
                                 for (int i = 0;i < buildingList.size();i++){
-                                    double latt = buildingList.get(i).getBuildingLatitude();
                                     System.out.println(buildingList.get(i).getBuildingLatitude());
                                     double distance = Math.sqrt(Math.pow(lat - buildingList.get(i).getBuildingLatitude(),2) +
                                             Math.pow(longitude - buildingList.get(i).getBuildingLongitude(),2));
@@ -96,22 +95,13 @@ public class MainActivity extends AppCompatActivity implements BuildingListFragm
                                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                                 intent.putExtra("BUILDING_POS",posOfCloseBuilding);
                                 startActivity(intent);
-
-
                             }
                         }
                     });
-
                 }
-
-
-
             }
         });
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -148,6 +138,6 @@ public class MainActivity extends AppCompatActivity implements BuildingListFragm
             intent.putExtra("BUILDING_POS",position);
             startActivity(intent);
         }
-        }
+    }
 }
 

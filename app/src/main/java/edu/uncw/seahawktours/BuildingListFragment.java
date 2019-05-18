@@ -29,13 +29,11 @@ public class BuildingListFragment extends Fragment implements CaptionedImageAdap
     private Listener listener;
 
     interface Listener {
-        void onClick(int position,List<Building> buildingList);
+        void onClick(int position, List<Building> buildingList);
     }
 
     public BuildingListFragment() {
-        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

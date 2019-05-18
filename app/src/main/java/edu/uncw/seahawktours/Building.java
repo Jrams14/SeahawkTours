@@ -77,7 +77,7 @@ public class Building {
                 return buildingLongitude;
         }
 
-        public void setLongitute(double longitute) {
-                this.buildingLongitude = longitute;
+        public void setLongitute(double longitude) {
+                this.buildingLongitude = buildingLongitude;
         }
 }
